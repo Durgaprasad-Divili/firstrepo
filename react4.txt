@@ -1,0 +1,449 @@
+React Components
+=================
+A component is a building block of react application.
+
+React components are used to split our UI into reusable independent pieces.
+ex:
+	Header, Footer, Section, Form , Table , Navbar and etc.
+
+React components are like javascript functions because they accept arbitary inputs like props and returns react element to describe how element should look like.
+
+In React, A component name must and should starts with uppercase.
+
+There are two ways to declare react components.
+
+1) Function component / Functional component 
+
+2) Class component 
+
+1) Function component
+---------------------
+Function component is also known as stateless component.
+
+Function component takes props as an argument and returns react elements.
+
+There are three ways to create a function component.
+
+Named function 
+--------------
+function App()
+{
+	return (
+		
+		)
+}
+export default App;
+
+
+Anonymous  function 
+-----------------
+const App = function(){
+
+	return (
+
+		)
+}
+export default App;
+
+Arrow function
+----------------
+const App = ()=>
+{
+	return (
+
+		)
+}
+export default App;
+
+Project structure 
+------------------
+
+myapp4
+|
+|---node_modules 
+|
+|---public 
+	|
+	|---index.html
+	|---manifest.json
+	|---favicon.ico
+|
+|-----src
+	|
+	|---index.js
+	|---App.js
+
+|----package.json 
+|----README.md
+
+step1:
+-----
+	Create a react project i.e myapp4.
+	ex:
+		npx create-react-app myapp4
+
+step2:
+-----
+	Open the VSC editor.
+	ex:
+		code . 
+
+step3:
+------
+	Switch to the project.
+	ex:
+		cd  myapp4
+
+step4:
+-----
+	Now install web-vitals dependency using npm.
+	ex:
+		npm install web-vitals
+
+step5:
+------
+	Run the react application.
+	ex:
+		npm start
+
+
+step6:
+-----
+	Now create a function component inside App.js file.
+
+App.js 
+-------
+function App()
+{
+	return (
+      <h1> Function component </h1>
+		)
+}
+export default App;
+
+
+Function component with props
+-------------------------------
+index.js 
+--------
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App rollno="101" name="Alan"/>
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+
+App.js
+------
+function App(props)
+{
+	return (
+      <>
+        <h1>Roll No : {props.rollno} </h1>
+        <h1>Name : {props.name}</h1>
+      </>
+		)
+}
+export default App;
+
+2) Class component 
+-------------------
+A class component is also known as statefull component.
+
+A class component must and should extends react Component class.
+
+A class component contains render() method which returns react elements.
+
+We can declare class component as follow.
+
+ex:
+import {Component} from 'react';
+class App extends Component 
+{
+	render()
+	{
+		return (
+
+		)
+	}
+}
+export default App;
+
+
+Project structure 
+------------------
+myapp5
+|
+|---node_modules 
+|
+|---public 
+	|
+	|---index.html
+	|---manifest.json
+	|---favicon.ico
+|
+|-----src
+	|
+	|---index.js
+	|---App.js
+
+|----package.json 
+|----README.md
+
+step1:
+-----
+	Create a react project i.e myapp5.
+	ex:
+		npx create-react-app myapp5
+
+step2:
+-----
+	Open the VSC editor.
+	ex:
+		code . 
+
+step3:
+------
+	Switch to the project.
+	ex:
+		cd  myapp5
+
+step4:
+-----
+	Now install web-vitals dependency using npm.
+	ex:
+		npm install web-vitals
+
+step5:
+------
+	Run the react application.
+	ex:
+		npm start
+
+
+step6:
+-----
+	Now create a function component inside App.js file.
+
+App.js 
+-------
+import {Component} from 'react';
+class App extends Component
+{
+  render()
+  {
+    return(
+        <h1> Class Component </h1>
+    )
+  }
+}
+export default App;
+
+
+Class component with props
+---------------------------
+index.js 
+-------
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App rollno="201" name="Jose"/>
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+
+App.js 
+------
+import {Component} from 'react';
+class App extends Component
+{
+  render()
+  {
+    return(
+        <>
+          <h1>Roll No : {this.props.rollno}</h1>
+          <h1>Name : {this.props.name}</h1>
+        </>
+    )
+  }
+}
+export default App;
+
+
+Composing component
+====================
+One component calls to another component such concept is called composing component.
+
+
+Project structure 
+------------------
+myapp6
+|
+|---node_modules 
+|
+|---public 
+	|
+	|---index.html
+	|---manifest.json
+	|---favicon.ico
+|
+|-----src
+	|
+	|---index.js
+	|---App.js (parent component)
+	|---Student.js (child component)
+
+|----package.json 
+|----README.md
+
+step1:
+-----
+	Create a react project i.e myapp6.
+	ex:
+		npx create-react-app myapp6
+
+step2:
+-----
+	Open the VSC editor.
+	ex:
+		code . 
+
+step3:
+------
+	Switch to the project.
+	ex:
+		cd  myapp6
+
+step4:
+-----
+	Now install web-vitals dependency using npm.
+	ex:
+		npm install web-vitals
+
+step5:
+------
+	Run the react application.
+	ex:
+		npm start
+
+
+step6:
+-----
+	Now create a Student component inside "src" folder.
+
+Student.js
+----------
+function Student()
+{
+    return (
+            <h1> Student Component </h1>
+    )
+}
+export default Student;
+
+step7:
+-----
+	Now call Student component inside "App.js" file.
+
+App.js
+-------
+import Student from "./Student";
+function App()
+{
+  return(
+      <Student/>
+  )
+}
+export default App;
+
+composing component with props
+--------------------------------
+index.js
+--------
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App name="Kelvin"/>
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+
+App.js
+------
+import Student from "./Student";
+function App(props)
+{
+  return(
+      <Student fname={props.name}/>
+  )
+}
+export default App;
+
+Student.js
+----------
+function Student(props)
+{
+    return (
+            <h1> Welcome :  {props.fname} </h1>
+    )
+}
+export default Student;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
